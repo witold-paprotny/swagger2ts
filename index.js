@@ -7,8 +7,8 @@ import { callChatGPT } from './gptHelpers.js'
 async function callApisAndSaveResponse() {
   try {
     console.log('1. Calling Swagger --------------------------------')
-    const swaggerUrl =
-      'https://betpro-web-dev-api.azurewebsites.net/v3/api-docs'
+    const swaggerUrl = process.env.SWAGGER_URL
+
     const response1 = await fetch(swaggerUrl)
     const swagger = await response1.json()
     const { schemas } = swagger.components
