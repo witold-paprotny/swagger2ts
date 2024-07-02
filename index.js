@@ -13,6 +13,12 @@ async function callApisAndSaveResponse() {
     const swagger = await response1.json()
     const { schemas } = swagger.components
 
+    console.log('- I have Schemas!')
+    // Save the response from the second API as a file in the home directory
+    const fileSchemasPath = path.join(process.env.HOME, 'schemas.js')
+    fs.writeFileSync(fileSchemasPath, JSON.stringify(schemas, null, 2))
+    console.log('- schemas saved to', fileSchemasPath)
+
     console.log('2. Calling GPT --------------------------------')
 
     const data = await callChatGPT(schemas)
@@ -23,7 +29,7 @@ async function callApisAndSaveResponse() {
       .replaceAll('```', '')
 
     // Save the response from the second API as a file in the home directory
-    const filePath = path.join(process.env.HOME, 'response.d.ts')
+    const filePath = path.join(process.env.HOME, 'types.d.ts')
     fs.writeFileSync(filePath, JSON.stringify(types, null, 2))
 
     console.log('Response saved to', filePath)
