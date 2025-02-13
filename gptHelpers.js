@@ -3,7 +3,6 @@ import OpenAI from 'openai'
 const requestConfig = {
   model: 'gpt-4o',
   temperature: 0, // higher the temperature, the more random (and usually creative) the output
-  max_tokens: 4096,
   top_p: 1,
   frequency_penalty: 0,
   presence_penalty: 0
@@ -26,7 +25,7 @@ const getRequestbody = schema => {
     content: `You will be provided with a json schemas. Your task is to turn it into Type Script interfaces. Additional requirements:
 - add keyword 'export'
 - sort attributes alphabetically
-- turn enums into separate types and use this within interfaces`
+- turn enum type props into separate typescript types. Use within interfaces`
   }
 
   const requestBody = {
