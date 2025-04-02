@@ -22,12 +22,36 @@ npm link
 
 ## Run the script
 
-1. In your project directory, run:
+### Only script
+
+In your project directory, run:
 
 ```bash
 npx swagger2types
 ```
 
-## TODO
+### Script and code formatting
 
-- [ ] Fix final formatting of result files.
+Run all the commands:
+
+```bash
+npx schema2types
+npx prettier --write src/swagger/schemas.js
+npx prettier --write src/swagger/types.d.td
+```
+
+### Script with code formatting with `npm`
+
+- add to `package.json`:
+
+```json
+"scripts": {
+  "schema2types": "npx schema2types && npx prettier --write src/swagger/schemas.js && npx prettier --write src/swagger/types.d.ts"
+}
+```
+
+- run:
+
+```bash
+npm run schema2types
+```
