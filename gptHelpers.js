@@ -1,4 +1,5 @@
 import OpenAI from 'openai'
+import { systemPrompt } from './systemPrompt'
 
 const requestConfig = {
   model: 'gpt-4o',
@@ -22,10 +23,7 @@ const getRequestbody = schema => {
   }
   const systemMessage = {
     role: 'system',
-    content: `You will be provided with a json schemas. Your task is to turn it into Type Script interfaces. Additional requirements:
-- add keyword 'export'
-- sort attributes alphabetically
-- turn enum type props into separate typescript types. Use within interfaces`
+    content: systemPrompt
   }
 
   const requestBody = {
