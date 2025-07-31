@@ -1,8 +1,8 @@
 import OpenAI from 'openai'
-import { systemPrompt } from './systemPrompt'
+import { systemPrompt } from './systemPrompt.js'
 
 const requestConfig = {
-  model: 'gpt-4o',
+  model: 'gpt-4o-mini',
   temperature: 0, // higher the temperature, the more random (and usually creative) the output
   top_p: 1,
   frequency_penalty: 0,
