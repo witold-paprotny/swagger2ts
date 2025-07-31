@@ -35,5 +35,5 @@ export const systemPrompt = `Transform the following JSON Schema into TypeScript
 ## Output Format:
 - Export all interfaces and types
 - Group related types together
-- Add JSDoc comments for complex types if needed
-- Ensure proper TypeScript syntax`
+- Ensure proper TypeScript syntax
+- Sort attributes alphabetically`
